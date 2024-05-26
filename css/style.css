@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Orbitron", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    color: rgb(255, 255, 255);
+    background-size: cover;
+    background: linear-gradient(to top, rgb(20, 83, 83) 2%, black);
+    display: flex;
+    grid-template-columns: 6fr;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+    .color {
+        position: absolute;
+        filter: blur(150px);
+
+        &:nth-child(1) {
+            top: -5vh;
+            background: violet;
+            width: 200px;
+            height: 200px;
+        }
+
+        &:nth-child(2) {
+            left: 5vh;
+            background: red;
+            width: 200px;
+            height: 200px;
+        }
+
+        &:nth-child(3) {
+            right: 5vh;
+            background: blue;
+            width: 200px;
+            height: 200px;
+        }
+    }
+}
+
+/* header */
+.header {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    width: 90vw;
+    background-color: #35353554;
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 1%;
+        height: 8vh;
+        padding: 0% 2%;
+
+        .botonNav {
+            font-size: medium;
+            color: white;
+            background: transparent;
+            padding: 20px;
+            border-radius: 10px;
+            border-color: rgba(255, 255, 255, 0.589);
+            margin: 0 5px;
+            box-shadow: 2px 2px rgb(56, 56, 56);
+
+            :hover {
+                color: red;
+                font-size: larger;
+            }
+
+            a {
+                text-decoration: none;
+                color: white;
+                text-shadow: 2px 2px black;
+            }
+        }
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        padding: 0% 2%;
+
+        img {
+            border-radius: 50%;
+            width: 70px;
+            margin: 5px;
+        }
+
+        h1 {
+            margin-left: 5px;
+        }
+    }
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    width: 100%;
+    flex-wrap: wrap;
+
+    .card {
+        position: relative;
+        width: 320px;
+        height: 320px;
+        margin: 20px;
+        transform-style: preserve-3d;
+        border-radius: 15px;
+        overflow: hidden;
+
+        .box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: 1s ease-in-out;
+        }
+
+        &:hover {
+            .box {
+                transform: rotateY(180deg);
+            }
+        }
+
+        .imgBox {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .contentBox {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: grey;
+            transform: rotateY(180deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+
+            div {
+                transform-style: preserve-3d;
+                transform: translateZ(30px);
+                background: linear-gradient(45deg, red, yellow);
+                padding: 20px;
+                margin: 0 30px;
+                border-radius: 15px;
+
+                h2 {
+                    font-size: 20px;
+                    color: white;
+                    letter-spacing: 1px;
+                    backface-visibility: hidden;
+                }
+
+                p {
+                    font-size: 16px;
+                    color: white;
+                    backface-visibility: hidden;
+                }
+            }
+        }
+    }
+}
+.pokemon-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    width: 20px; 
+}
+footer{
+    position: relative;
+    background-color: #35353554;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    justify-content: center;
+    height: 50px;
+    width: 100%;
+    padding-top: 20px;
+    border-start-end-radius: 15px;
+    border-top-left-radius: 15px;
+}
