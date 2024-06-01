@@ -1,73 +1,71 @@
-const pokemonContainer= document.querySelector('.pokemon-container')
+const API_URL = 'https://api.themoviedb.org/3'
+const API_KEY = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhODMzNjgxYjMwOTE2ZTk1OTY0NGNlMmI1N2Y1NjkzYSIsInN1YiI6IjY2NTMzYTdiMDQwYTAwNmVkY2Q3NDE2OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.V2fbudi_0NoV-vI86P1Yku-ViZdYOIH_z8mKFha08ZY'
+let currnetPage = 1;
 
-function fetchPokemon(id) {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
-    .then((res)=>res.json())
-    .then((data)=>{
-        createPokemon(data);
+const options = {
+    method: 'GET',
+    headers: {
+        accept: 'application/json',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhODMzNjgxYjMwOTE2ZTk1OTY0NGNlMmI1N2Y1NjkzYSIsInN1YiI6IjY2NTMzYTdiMDQwYTAwNmVkY2Q3NDE2OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.V2fbudi_0NoV-vI86P1Yku-ViZdYOIH_z8mKFha08ZY'
     }
-        /* apiName.innerText=JSON.stringify(data.name) */
-    )
-    /* .catch(e=>console.error(new Error(e)));
-    console.log(datos) */
+};
+
+function llamarAPI(page) {
+    fetch(`${API_URL}/movie/popular?page=${page}`, {
+        headers: {
+            Authorization: `Bearer ${API_KEY}`,
+        },
+    })
+        .then(response => response.json())
+        .then(data => dibujarDatos(data));
 }
 
-/* apiButton.addEventListener('click',llamarAPI) */
-function fetchPokemons(num){
-    for (let i = 1; i <= num; i++) {
-        fetchPokemon(i);
-    }
-}
-
-function createPokemon(pokemon){
-    const card= document.createElement('div');
-    card.classList.add('pokemon-block');
-    
-    const spriteContainer=document.createElement('div');
-    spriteContainer.classList.add('img-container');
-
-    const sprite= document.createElement('img');
-    sprite.src=pokemon.sprites.front_default
-
-    spriteContainer.appendChild(sprite);
-
-    const number=document.createElement('p');
-    number.textContent=`#${pokemon.id.toString().padStart(3,0)}`;
-    
-    const name= document.createElement('p');
-    name.classList.add('name');
-    name.textContent=pokemon.name
-
-    card.appendChild(spriteContainer);
-    card.appendChild(number);
-    card.appendChild(name);
-
-    pokemonContainer.appendChild(card);
-}
-fetchPokemons(950);
-/* function llamarAPI() {
-    const json =
-        fetch('https://reqres.in/api/users?page=2')
-            .then(response => response.json())
-            .then(data => dibujarDatos(data));
-}
 
 function dibujarDatos(json) {
-    const filas = json.data.map(obj => fila(obj));
-
-    document.getElementById('datos').innerHTML = filas.join('');
-
+    const filas = json.results.map(obj => Peli(obj));
+    document.querySelector('.peliculasTendencia .peliculas').innerHTML = filas.join('');
 }
+/* llamarAPI(1); */
 
-function fila(obj) {
-    return `
-            <tr>
-                <th>${obj.first_name}</th>
-                <th>${obj.last_name}</th>
-                <th><img src="${obj.avatar}" alt=""></th>
-            </tr>
-    `
+/* ------------------------------------------------- */
+
+function Peli(obj) {
+    return ` 
+    <a href="#">
+    <div div class="card">
+        <div class="box">
+            <div class="imgBox">
+                <img class="imgTendencia" src="https://image.tmdb.org/t/p/w500/${obj.poster_path}" alt="${obj.title}"
+                    loading="lazy">
+            </div>
+            <div class="contentBox">
+                <div>
+                    <h1>${obj.title}</h1>
+                    <br>
+                    <p>${'Puntuación : ' + obj.vote_average}</p>
+                    <br>
+                    <p>${'Estreno : ' + obj.release_date}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</a>
+`
+        ;
 }
+/* ------------------------------------ */
+/* function cargarPaginaSiguiente(){
+    currnetPage++;
+    llamarAPI(currnetPage);
+}
+function cargarPaginaAnterior(){
+    if (currnetPage>1) {
+        currnetPage--;
+    llamarAPI(currnetPage);
+    }
+}
+document.querySelector('.anterior').addEventListener('click', cargarPaginaAnterior);
+document.querySelector('.siguiente').addEventListener('click', cargarPaginaSiguiente); */
 
-llamarAPI();
- */
+
+llamarAPI(currnetPage)

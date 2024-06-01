@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const formulario = document.querySelector('form');
+    const registro = document.querySelector('form');
+    const login = document.querySelector('form');
     /* --------------- */
     const showError = (input, msg) => {
         const divContainer = input.parentNode;
@@ -16,7 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
         errorText.innerText = '';
     }
     /* --------------- */
-    formulario.querySelectorAll('input').forEach(input =>{
+    registro.querySelectorAll('input').forEach(input =>{
+        input.addEventListener('change',()=>{
+            const valor  = input.value.trim();
+            if (valor  !== '') {
+                eliminarError(input)
+            }
+        })
+    })
+    /* --------------- */
+    login.querySelectorAll('input').forEach(input =>{
         input.addEventListener('change',()=>{
             const valor  = input.value.trim();
             if (valor  !== '') {
@@ -73,12 +83,30 @@ document.addEventListener('DOMContentLoaded', () => {
         validate = validateUserName('userName', 'el email no es valido') && validate;
         validate = validateEmail('email', 'el email no es valido') && validate;
         validate = validateCampo('password', 'la contraseña es obligatoria') && validate;
+        validate = validateCampo('repeatPassword', 'la contraseña es obligatoria') && validate;   
+        return validate;
+    }
+    const validateLogin = () => {
+        let validate = true;
+        validate = validateEmail('email', 'el email no es valido') && validate;
+        validate = validateCampo('password', 'la contraseña es obligatoria') && validate;
         return validate;
     }
     /* --------------- */
-    formulario.addEventListener('submit', event => {
+    registro.addEventListener('submit', event => {
         event.preventDefault();
         if (!validateForm()) {
+            event.preventDefault()
+            console.log('el formulario no es valido');
+        } else {
+            event.preventDefault();
+            console.log('formulario enviado');
+        }
+    })
+    /* --------------- */
+    login.addEventListener('submit', event => {
+        event.preventDefault();
+        if (!validateLogin()) {
             event.preventDefault()
             console.log('el formulario no es valido');
         } else {
