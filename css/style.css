@@ -69,7 +69,6 @@ body {
         list-style: none;
         display: flex;
         gap: 1 rem;
-        li {
 
             .botonNav {
                 width: 150px;
@@ -93,7 +92,6 @@ body {
                     text-shadow: 2px 2px black;
                 }
             }
-        }
     }
 
     .hamburguesa{
