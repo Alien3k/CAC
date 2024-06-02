@@ -1,3 +1,15 @@
+const nav = document.querySelector('#nav');
+const abrir = document.querySelector('#abrir');
+
+abrir.addEventListener('click', () => {
+    if (nav.classList.contains('visible')) {
+        nav.classList.remove('visible');
+    }else{
+        nav.classList.add('visible');
+    }
+    
+})
+
 const API_URL = 'https://api.themoviedb.org/3'
 const API_KEY = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhODMzNjgxYjMwOTE2ZTk1OTY0NGNlMmI1N2Y1NjkzYSIsInN1YiI6IjY2NTMzYTdiMDQwYTAwNmVkY2Q3NDE2OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.V2fbudi_0NoV-vI86P1Yku-ViZdYOIH_z8mKFha08ZY'
 let currnetPage = 1;
@@ -69,3 +81,5 @@ document.querySelector('.siguiente').addEventListener('click', cargarPaginaSigui
 
 
 llamarAPI(currnetPage)
+
+/* ---------------- */

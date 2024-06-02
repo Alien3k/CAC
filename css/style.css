@@ -55,36 +55,71 @@ body {
     background-color: #35353554;
     backdrop-filter: blur(10px);
     border-radius: 15px;
+    padding: 0.5%;
 
     .nav {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin: 1%;
-        height: 8vh;
         padding: 0% 2%;
+        .lista{
+            list-style: none;
+            display: flex;
+            gap: 1 rem;
+            li {
 
-        .botonNav {
-            width: 150px;
-            height: 50px ;
-            font-size: 16px;
-            color: white;
-            background: transparent;
-            border-radius: 10px;
-            border-color: rgba(255, 255, 255, 0.589);
-            margin: 0 5px;
-            box-shadow: 2px 2px rgb(56, 56, 56);
-
-            :hover {
-                color: red;
-                font-size: larger;
+                .botonNav {
+                    width: 150px;
+                    height: 50px ;
+                    font-size: 16px;
+                    color: white;
+                    background: transparent;
+                    border-radius: 10px;
+                    border-color: rgba(255, 255, 255, 0.589);
+                    margin: 0 5px;
+                    box-shadow: 2px 2px rgb(56, 56, 56);
+        
+                    :hover {
+                        color: red;
+                        font-size: larger;
+                    }
+        
+                    a {
+                        text-decoration: none;
+                        color: white;
+                        text-shadow: 2px 2px black;
+                    }
+                }
             }
+        }
+    }
 
-            a {
-                text-decoration: none;
-                color: white;
-                text-shadow: 2px 2px black;
-            }
+    .hamburguesa{
+        display: none;        
+    }
+    @media screen and (max-width: 768px) {
+        .hamburguesa{
+            display: block;
+        }
+        .nav{
+            opacity: 0;
+            visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 0;
+            right: 10vw;
+            background: rgb(0, 0, 0);
+            padding: 10px;
+            border: solid rgba(145, 145, 145, 0.425);
+            box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);            
+        }
+        .lista{
+            flex-direction: column;
+        }
+        .nav.visible{
+            opacity: 1;
+            visibility: visible;
         }
     }
 
@@ -118,6 +153,7 @@ body {
     align-items: center;
     flex-direction: column;
     width: 100%;
+    margin-top: 2vh;
     section {
         justify-content: center;
         align-items: center;
@@ -127,8 +163,10 @@ body {
 
         .card {
             position: relative;
-            width: 300px;
-            height: 420px;
+            width: 15vw;
+            min-width: 200px;
+            height: 42vh;
+            min-height: 300px;
             margin: 20px;
             transform-style: preserve-3d;
             border-radius: 15px;
@@ -187,10 +225,16 @@ body {
                     letter-spacing: 1px;
                     text-align: center;
                     color: white;
-
                     p {
                         margin-top: 20px;
-                        font-size: 16px;
+                    }
+                    @media (max-width: 768px) {
+                        h1{
+                            font-size: 100%
+                        }
+                        p {
+                            font-size: 80%;
+                        }
                     }
                 }
             }
