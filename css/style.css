@@ -10,11 +10,11 @@
 body {
     color: rgb(255, 255, 255);
     background-size: cover;
-    background: linear-gradient(to top, rgb(16, 204, 204) 2%, black);
+    background: linear-gradient(to top, rgb(59, 2, 105) 2%, black, rgb(43, 0, 78));
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 100px;    
+    padding-top: 100px;
 
     .color {
         position: absolute;
@@ -52,7 +52,7 @@ body {
     position: absolute;
     top: 0;
     width: 90vw;
-    background-color: #35353554;
+    background-color: #86868654;
     backdrop-filter: blur(10px);
     border-radius: 15px;
     padding: 0.5%;
@@ -62,7 +62,7 @@ body {
         align-items: center;
         justify-content: space-between;
         padding: 0% 2%;
-        
+
     }
 
     .lista {
@@ -70,38 +70,40 @@ body {
         display: flex;
         gap: 1 rem;
 
-            .botonNav {
-                width: 150px;
-                height: 50px ;
-                font-size: 16px;
+        .botonNav {
+            width: 150px;
+            height: 50px;
+            color: rgba(255, 255, 255, 0.438);
+            background: transparent;
+            border-radius: 10px;
+            border-color: rgba(255, 255, 255, 0.589);
+            margin: 0 5px;
+
+            :hover {
                 color: white;
-                background: transparent;
-                border-radius: 10px;
-                border-color: rgba(255, 255, 255, 0.589);
-                margin: 0 5px;
-                box-shadow: 2px 2px rgb(56, 56, 56);
-    
-                :hover {
-                    color: red;
-                    font-size: larger;
-                }
-    
-                a {
-                    text-decoration: none;
-                    color: white;
-                    text-shadow: 2px 2px black;
-                }
             }
+
+            a {
+                position: re;
+                text-decoration: none;
+                color: rgba(255, 255, 255, 0.712);
+                text-shadow: 2px 2px black;
+                font-size: 16px;
+                font-weight: 500;
+            }
+        }
     }
 
-    .hamburguesa{
-        display: none;        
+    .hamburguesa {
+        display: none;
     }
+
     @media screen and (max-width: 768px) {
-        .hamburguesa{
+        .hamburguesa {
             display: block;
         }
-        .nav{
+
+        .nav {
             opacity: 0;
             visibility: hidden;
             display: flex;
@@ -112,12 +114,14 @@ body {
             background: rgb(0, 0, 0);
             padding: 10px;
             border: solid rgba(145, 145, 145, 0.425);
-            box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);            
+            box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
         }
-        .lista{
+
+        .lista {
             flex-direction: column;
         }
-        .nav.visible{
+
+        .nav.visible {
             opacity: 1;
             visibility: visible;
         }
@@ -128,7 +132,7 @@ body {
         align-items: center;
         padding: 0% 2%;
         text-decoration: none;
-        color: cyan;
+        color: white;
 
         img {
             border-radius: 50%;
@@ -138,13 +142,14 @@ body {
 
         h1 {
             margin-left: 5px;
+            font-weight: 700;
         }
     }
 }
 
-.tituloSection {
-    text-align: center;
-    margin: 5px;
+hr {
+    width: 80vw;
+    margin-bottom: 3vh;
 }
 
 .main {
@@ -154,12 +159,106 @@ body {
     flex-direction: column;
     width: 100%;
     margin-top: 2vh;
-    section {
+
+    .seccionPrincipal {
+        display: flex;
+        flex-direction: column;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://th.bing.com/th/id/OIG2.XhTHWyxnR1J.3y6c2kno?pid=ImgGn);
+        width: 100vw;
+        height: 80vh;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 100vw 100vw;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 2%;
+
+        h1 {
+            font-size: 34px;
+            font-weight: 500;
+        }
+
+        h2 {
+            font-size: 24px;
+        }
+
+        .botonBanner {
+            background: rgba(0, 0, 0, 0.192);
+            cursor: pointer;
+            border: none;
+            padding: 16px 32px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            position: relative;
+            border-radius: 10px;
+            transition: 1s;
+            &:hover{
+                background: rgba(45, 198, 209, 0.5);
+                transition: 1s;
+                border-radius: 0px;
+            }
+
+            a {
+                font-size: 18px;
+                text-decoration: none;
+                color: white;
+            }
+            
+        }
+    }
+    .buscador{
+        display: flex;
+        background: transparent;
+        height: 50vh;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        transform-style: preserve-3d;
-        width: 100%;
-        flex-wrap: wrap;
+        h2{
+            font-size: 2.2rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        .buscadorPeliculas{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1rem;
+            .inputBuscador{
+                background: rgba(255, 255, 255, 0.575);
+                height: 50px;
+                width: 40vw;
+                border-radius: 50px;
+                border: solid 2px rgba(255, 255, 255, 0.575);
+                text-align: center;                
+                font-size: 18px;
+            }
+            .botonBuscador{
+                background: rgba(156, 156, 156, 0.336);
+                display: inline-block;
+                height: 50px;
+                width:150px;
+                margin: 10px;
+                font-size: 18px;
+                color: rgb(255, 255, 255);
+                border-radius: 50px;
+                border: solid 2px rgba(255, 255, 255, 0.575);
+                font-weight: 500;
+                transition: 1s;
+                &:hover{
+                    background: rgba(255, 0, 0, 0.548);
+                    transition: 1s;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.peliculasTendencia {
+    .peliculas {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
 
         .card {
             position: relative;
@@ -184,7 +283,7 @@ body {
 
             &:hover {
                 .box {
-                    transform: rotateY(540deg);
+                    transform: rotateY(180deg);
                 }
             }
 
@@ -207,7 +306,7 @@ body {
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background: linear-gradient(180deg, rgb(179, 0, 0), rgb(218, 123, 15));
+                background: linear-gradient(180deg, rgba(211, 92, 13, 0.5), rgb(0, 0, 0));
                 transform: rotateY(180deg);
                 display: flex;
                 justify-content: center;
@@ -225,13 +324,16 @@ body {
                     letter-spacing: 1px;
                     text-align: center;
                     color: white;
+
                     p {
                         margin-top: 20px;
                     }
+
                     @media (max-width: 768px) {
-                        h1{
+                        h1 {
                             font-size: 100%
                         }
+
                         p {
                             font-size: 80%;
                         }
@@ -240,37 +342,82 @@ body {
             }
         }
     }
-}
 
-.peliculasTendencia {
-    display: flex;
-    width: 80vw;    
-    .peliculas {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-    }
     @media (max-width: 1200px) {
         .peliculas {
             grid-template-columns: repeat(4, 1fr);
         }
     }
+
     @media (max-width: 992px) {
         .peliculas {
             grid-template-columns: repeat(3, 1fr);
         }
     }
+
     @media (max-width: 768px) {
         .peliculas {
             grid-template-columns: repeat(2, 1fr);
         }
     }
+
     @media (max-width: 576px) {
         .peliculas {
             grid-template-columns: repeat(1, 1fr);
         }
     }
 }
+.sigYAnt{
+    display: flex;
+    height: 100px;
+    width: 80vw;
+    margin: 5vh; 
+    justify-content: space-around;
+    .boton{
+        background: rgb(43, 9, 82);
+        height: 8vh;
+        min-height: 70px;
+        width: 18vw;
+        min-width: 180px;
+        cursor: pointer;
+        border: none;
+        pad: 16px 32px;
+        color: white;
+        font-size: 24px;
+        font-weight: 500;
+        position: relative;
+        border-radius: 15px;
+        &::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient( 45deg, red,blue,deeppink,blue,red,blue,deeppink,blue);
+            background-size: 800%;
+            border-radius: 10px;
+            filter: blur(8px);
+            animation: botonDeColores 20s linear infinite;
+        }
+    }
+}
 
+    
+
+
+@keyframes botonDeColores{
+    0%{
+        background-position: 0 0;
+    }
+    50%{
+        background-position: 400% 0;
+    }
+    100%{
+        background-position: 0 0;
+    }
+}
 footer {
     position: relative;
     background-color: #35353554;

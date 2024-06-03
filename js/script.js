@@ -44,7 +44,7 @@ function dibujarDatos(json) {
 function Peli(obj) {
     return ` 
     <a href="#">
-    <div div class="card">
+    <div class="card">
         <div class="box">
             <div class="imgBox">
                 <img class="imgTendencia" src="https://image.tmdb.org/t/p/w500/${obj.poster_path}" alt="${obj.title}"
@@ -66,7 +66,7 @@ function Peli(obj) {
         ;
 }
 /* ------------------------------------ */
-/* function cargarPaginaSiguiente(){
+function cargarPaginaSiguiente(){
     currnetPage++;
     llamarAPI(currnetPage);
 }
@@ -77,7 +77,7 @@ function cargarPaginaAnterior(){
     }
 }
 document.querySelector('.anterior').addEventListener('click', cargarPaginaAnterior);
-document.querySelector('.siguiente').addEventListener('click', cargarPaginaSiguiente); */
+document.querySelector('.siguiente').addEventListener('click', cargarPaginaSiguiente);
 
 
 llamarAPI(currnetPage)
